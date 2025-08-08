@@ -1,64 +1,53 @@
 using UnityEngine;
-using UnityEngine.UI;
 
-public class CameraSwitcher : MonoBehaviour
+public class CameraSwitchMenu : MonoBehaviour
 {
-    public Camera playerCamera;       // camera care urmează jucătorul
-    public Camera terminalCamera;     // camera fixă spre calculator
-    public GameObject terminalUI;     // canvas-ul meniului
-    public GameObject playerController; // player-ul sau controllerul său
+    public Camera mainCamera;       // camera gameplay
+    public Camera menuCamera;       // camera pentru meniu
+    public GameObject menuUI;       // UI cu 4 butoane
 
-    private bool nearTerminal = false;
-    private bool inTerminalView = false;
+    private bool playerInRange = false;
+
+    void Start()
+    {
+        menuUI.SetActive(false);
+        menuCamera.gameObject.SetActive(false);
+        mainCamera.gameObject.SetActive(true);
+    }
 
     void Update()
     {
-        if (nearTerminal && !inTerminalView && Input.GetKeyDown(KeyCode.E))
+        if (playerInRange && Input.GetKeyDown(KeyCode.E))
         {
-            EnterTerminalView();
-        }
-
-        if (inTerminalView && Input.GetKeyDown(KeyCode.Escape))
-        {
-            ExitTerminalView();
+            OpenMenu();
         }
     }
 
-    void EnterTerminalView()
+    void OpenMenu()
     {
-        inTerminalView = true;
-
-        playerCamera.enabled = false;
-        terminalCamera.enabled = true;
-
-        terminalUI.SetActive(true);
-        playerController.SetActive(false); // oprește mișcarea
+        mainCamera.gameObject.SetActive(false);
+        menuCamera.gameObject.SetActive(true);
+        menuUI.SetActive(true);
+        // Dacă ai control player, aici îl poți dezactiva
     }
 
-    public void ExitTerminalView()
+    public void CloseMenu()
     {
-        inTerminalView = false;
-
-        playerCamera.enabled = true;
-        terminalCamera.enabled = false;
-
-        terminalUI.SetActive(false);
-        playerController.SetActive(true); // repornește mișcarea
+        menuUI.SetActive(false);
+        menuCamera.gameObject.SetActive(false);
+        mainCamera.gameObject.SetActive(true);
+        // Reactivare control player dacă l-ai oprit
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
-        {
-            nearTerminal = true;
-        }
+            playerInRange = true;
     }
 
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))
-        {
-            nearTerminal = false;
-        }
+            playerInRange = false;
     }
 }
