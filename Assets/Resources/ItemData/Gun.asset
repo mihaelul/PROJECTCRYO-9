@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea5be31f7d213c247af4c16f479d3801, type: 3}
   m_Name: Gun
   m_EditorClassIdentifier: 
-  itemName: Gun
-  description: 'Pistol incarcat
+  itemName: Pistol
+  description: 'Este incarcaat
 
 '
-  icon: {fileID: 21300000, guid: f6dc386de13b95e4db64b07f2ee7909e, type: 3}
+  icon: {fileID: 21300000, guid: 492792ca220f5b842a09eac41935ab7f, type: 3}

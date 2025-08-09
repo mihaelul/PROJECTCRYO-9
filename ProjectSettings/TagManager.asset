@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Door
   - SafeZone
+  - Enemy
   layers:
   - Default
   - TransparentFX
