@@ -18661,6 +18661,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 54b30e10a2f11c3418ddc68df8c1860e, type: 3}
   m_PrefabInstance: {fileID: 647105481}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &647466782
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 647466783}
+  m_Layer: 0
+  m_Name: stepRayUpper
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &647466783
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 647466782}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.43, z: 0.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 796553499}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &647950694
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23000,6 +23031,18 @@ PrefabInstance:
       propertyPath: crouchHeight
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 6390834317904180908, guid: 83724ae50978c73498e14984e77f7e45, type: 3}
+      propertyPath: stepRayLower
+      value: 
+      objectReference: {fileID: 1229485674}
+    - target: {fileID: 6390834317904180908, guid: 83724ae50978c73498e14984e77f7e45, type: 3}
+      propertyPath: stepRayUpper
+      value: 
+      objectReference: {fileID: 647466782}
+    - target: {fileID: 6390834317904180908, guid: 83724ae50978c73498e14984e77f7e45, type: 3}
+      propertyPath: staminaRegenerationRate
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 8727281566255173398, guid: 83724ae50978c73498e14984e77f7e45, type: 3}
       propertyPath: m_Height
       value: 1.8
@@ -23007,6 +23050,12 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 4831379752619439471, guid: 83724ae50978c73498e14984e77f7e45, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1229485675}
+    - targetCorrespondingSourceObject: {fileID: 4831379752619439471, guid: 83724ae50978c73498e14984e77f7e45, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 647466783}
     - targetCorrespondingSourceObject: {fileID: 3237742957050096642, guid: 83724ae50978c73498e14984e77f7e45, type: 3}
       insertIndex: -1
       addedObject: {fileID: 923241650}
@@ -32973,6 +33022,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f0ab5f518a39b5e40a973ef5bbb25921, type: 3}
   m_PrefabInstance: {fileID: 1228472253}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1229485674
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1229485675}
+  m_Layer: 0
+  m_Name: stepRayLower
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1229485675
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1229485674}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.933, z: 0.49}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 796553499}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1230773179
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -51029,9 +51109,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92b0e80c00b85d14da5b6488a1056e78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
-  wanderRadius: 10
-  changeDirectionInterval: 3
 --- !u!1001 &2026284898
 PrefabInstance:
   m_ObjectHideFlags: 0
