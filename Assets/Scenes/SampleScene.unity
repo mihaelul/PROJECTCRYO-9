@@ -206,7 +206,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1398826}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -867,6 +867,10 @@ PrefabInstance:
     - target: {fileID: 1851013419894056381, guid: 32467b8dc355cd04da356b17dbac4f29, type: 3}
       propertyPath: m_Name
       value: Wall Corner
+      objectReference: {fileID: 0}
+    - target: {fileID: 1851013419894056381, guid: 32467b8dc355cd04da356b17dbac4f29, type: 3}
+      propertyPath: m_TagString
+      value: SafeZone
       objectReference: {fileID: 0}
     - target: {fileID: 3452931867044665262, guid: 32467b8dc355cd04da356b17dbac4f29, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4989,6 +4993,10 @@ PrefabInstance:
     - target: {fileID: 1851013419894056381, guid: 32467b8dc355cd04da356b17dbac4f29, type: 3}
       propertyPath: m_Name
       value: Wall Corner (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1851013419894056381, guid: 32467b8dc355cd04da356b17dbac4f29, type: 3}
+      propertyPath: m_TagString
+      value: SafeZone
       objectReference: {fileID: 0}
     - target: {fileID: 3452931867044665262, guid: 32467b8dc355cd04da356b17dbac4f29, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10733,6 +10741,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall Window
       objectReference: {fileID: 0}
+    - target: {fileID: 7014745350219325488, guid: 1b890216c6645c648bfde4c7ba8f0b08, type: 3}
+      propertyPath: m_TagString
+      value: SafeZone
+      objectReference: {fileID: 0}
     - target: {fileID: 7436592752030856507, guid: 1b890216c6645c648bfde4c7ba8f0b08, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -12175,6 +12187,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1398826}
     m_Modifications:
+    - target: {fileID: 2240568445028064769, guid: cf8443763fc34314490f8a3e2f94dd37, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240568445028064769, guid: cf8443763fc34314490f8a3e2f94dd37, type: 3}
+      propertyPath: m_IncludeLayers.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
     - target: {fileID: 5684943981178066559, guid: cf8443763fc34314490f8a3e2f94dd37, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -12182,6 +12202,14 @@ PrefabInstance:
     - target: {fileID: 6257800485735965347, guid: cf8443763fc34314490f8a3e2f94dd37, type: 3}
       propertyPath: m_Name
       value: Floor Tile 01
+      objectReference: {fileID: 0}
+    - target: {fileID: 6257800485735965347, guid: cf8443763fc34314490f8a3e2f94dd37, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6257800485735965347, guid: cf8443763fc34314490f8a3e2f94dd37, type: 3}
+      propertyPath: m_TagString
+      value: SafeZone
       objectReference: {fileID: 0}
     - target: {fileID: 6954531691785998512, guid: cf8443763fc34314490f8a3e2f94dd37, type: 3}
       propertyPath: m_LocalPosition.x
@@ -14350,6 +14378,10 @@ PrefabInstance:
     - target: {fileID: 2025503266058111224, guid: 01f7094c0e795ad47b0ef77f3cf2ae66, type: 3}
       propertyPath: m_Name
       value: Wall Door 02 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2025503266058111224, guid: 01f7094c0e795ad47b0ef77f3cf2ae66, type: 3}
+      propertyPath: m_TagString
+      value: SafeZone
       objectReference: {fileID: 0}
     - target: {fileID: 2025503266058409176, guid: 01f7094c0e795ad47b0ef77f3cf2ae66, type: 3}
       propertyPath: m_LocalPosition.x
@@ -22651,7 +22683,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5966693035097578126, guid: 3ceac4825786bdc4cbc6e23696cad71b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 26.5
+      value: 84
       objectReference: {fileID: 0}
     - target: {fileID: 5966693035097578126, guid: 3ceac4825786bdc4cbc6e23696cad71b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -22910,7 +22942,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4831379752619439471, guid: 83724ae50978c73498e14984e77f7e45, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -517.271
+      value: -519.711
       objectReference: {fileID: 0}
     - target: {fileID: 4831379752619439471, guid: 83724ae50978c73498e14984e77f7e45, type: 3}
       propertyPath: m_LocalPosition.y
@@ -23207,6 +23239,10 @@ PrefabInstance:
     - target: {fileID: 1851013419894056381, guid: 32467b8dc355cd04da356b17dbac4f29, type: 3}
       propertyPath: m_Name
       value: Wall Corner (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1851013419894056381, guid: 32467b8dc355cd04da356b17dbac4f29, type: 3}
+      propertyPath: m_TagString
+      value: SafeZone
       objectReference: {fileID: 0}
     - target: {fileID: 3452931867044665262, guid: 32467b8dc355cd04da356b17dbac4f29, type: 3}
       propertyPath: m_LocalPosition.x
@@ -24761,6 +24797,10 @@ PrefabInstance:
     - target: {fileID: 8730245854331329977, guid: b2452a5c2cd649a4db9eebcd16f7b155, type: 3}
       propertyPath: m_Name
       value: Wall Plain
+      objectReference: {fileID: 0}
+    - target: {fileID: 8730245854331329977, guid: b2452a5c2cd649a4db9eebcd16f7b155, type: 3}
+      propertyPath: m_TagString
+      value: SafeZone
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -30013,6 +30053,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1398826}
     m_Modifications:
+    - target: {fileID: 2240568445028064769, guid: cf8443763fc34314490f8a3e2f94dd37, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5684943981178066559, guid: cf8443763fc34314490f8a3e2f94dd37, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -30020,6 +30064,14 @@ PrefabInstance:
     - target: {fileID: 6257800485735965347, guid: cf8443763fc34314490f8a3e2f94dd37, type: 3}
       propertyPath: m_Name
       value: Floor Tile 01 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6257800485735965347, guid: cf8443763fc34314490f8a3e2f94dd37, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6257800485735965347, guid: cf8443763fc34314490f8a3e2f94dd37, type: 3}
+      propertyPath: m_TagString
+      value: SafeZone
       objectReference: {fileID: 0}
     - target: {fileID: 6954531691785998512, guid: cf8443763fc34314490f8a3e2f94dd37, type: 3}
       propertyPath: m_LocalPosition.x
@@ -30712,7 +30764,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: -3035101939719975992, guid: e733fc0edacbb404e851054c89d526af, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -32104,6 +32156,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1398826}
     m_Modifications:
+    - target: {fileID: 2240568445028064769, guid: cf8443763fc34314490f8a3e2f94dd37, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5684943981178066559, guid: cf8443763fc34314490f8a3e2f94dd37, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -32111,6 +32167,14 @@ PrefabInstance:
     - target: {fileID: 6257800485735965347, guid: cf8443763fc34314490f8a3e2f94dd37, type: 3}
       propertyPath: m_Name
       value: Floor Tile 01 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6257800485735965347, guid: cf8443763fc34314490f8a3e2f94dd37, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6257800485735965347, guid: cf8443763fc34314490f8a3e2f94dd37, type: 3}
+      propertyPath: m_TagString
+      value: SafeZone
       objectReference: {fileID: 0}
     - target: {fileID: 6954531691785998512, guid: cf8443763fc34314490f8a3e2f94dd37, type: 3}
       propertyPath: m_LocalPosition.x
@@ -35325,6 +35389,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1398826}
     m_Modifications:
+    - target: {fileID: 2240568445028064769, guid: cf8443763fc34314490f8a3e2f94dd37, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5684943981178066559, guid: cf8443763fc34314490f8a3e2f94dd37, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -35332,6 +35400,14 @@ PrefabInstance:
     - target: {fileID: 6257800485735965347, guid: cf8443763fc34314490f8a3e2f94dd37, type: 3}
       propertyPath: m_Name
       value: Floor Tile 01 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6257800485735965347, guid: cf8443763fc34314490f8a3e2f94dd37, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6257800485735965347, guid: cf8443763fc34314490f8a3e2f94dd37, type: 3}
+      propertyPath: m_TagString
+      value: SafeZone
       objectReference: {fileID: 0}
     - target: {fileID: 6954531691785998512, guid: cf8443763fc34314490f8a3e2f94dd37, type: 3}
       propertyPath: m_LocalPosition.x
@@ -37865,6 +37941,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall Plain (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8730245854331329977, guid: b2452a5c2cd649a4db9eebcd16f7b155, type: 3}
+      propertyPath: m_TagString
+      value: SafeZone
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -37883,6 +37963,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1398826}
     m_Modifications:
+    - target: {fileID: 2240568445028064769, guid: cf8443763fc34314490f8a3e2f94dd37, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5684943981178066559, guid: cf8443763fc34314490f8a3e2f94dd37, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -37890,6 +37974,14 @@ PrefabInstance:
     - target: {fileID: 6257800485735965347, guid: cf8443763fc34314490f8a3e2f94dd37, type: 3}
       propertyPath: m_Name
       value: Floor Tile 01 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6257800485735965347, guid: cf8443763fc34314490f8a3e2f94dd37, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6257800485735965347, guid: cf8443763fc34314490f8a3e2f94dd37, type: 3}
+      propertyPath: m_TagString
+      value: SafeZone
       objectReference: {fileID: 0}
     - target: {fileID: 6954531691785998512, guid: cf8443763fc34314490f8a3e2f94dd37, type: 3}
       propertyPath: m_LocalPosition.x
@@ -42777,6 +42869,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1398826}
     m_Modifications:
+    - target: {fileID: 2240568445028064769, guid: cf8443763fc34314490f8a3e2f94dd37, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5684943981178066559, guid: cf8443763fc34314490f8a3e2f94dd37, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -42784,6 +42880,14 @@ PrefabInstance:
     - target: {fileID: 6257800485735965347, guid: cf8443763fc34314490f8a3e2f94dd37, type: 3}
       propertyPath: m_Name
       value: Floor Tile 01 (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6257800485735965347, guid: cf8443763fc34314490f8a3e2f94dd37, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6257800485735965347, guid: cf8443763fc34314490f8a3e2f94dd37, type: 3}
+      propertyPath: m_TagString
+      value: SafeZone
       objectReference: {fileID: 0}
     - target: {fileID: 6954531691785998512, guid: cf8443763fc34314490f8a3e2f94dd37, type: 3}
       propertyPath: m_LocalPosition.x
@@ -46834,6 +46938,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1398826}
     m_Modifications:
+    - target: {fileID: 2240568445028064769, guid: cf8443763fc34314490f8a3e2f94dd37, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5684943981178066559, guid: cf8443763fc34314490f8a3e2f94dd37, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -46841,6 +46949,14 @@ PrefabInstance:
     - target: {fileID: 6257800485735965347, guid: cf8443763fc34314490f8a3e2f94dd37, type: 3}
       propertyPath: m_Name
       value: Floor Tile 01 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6257800485735965347, guid: cf8443763fc34314490f8a3e2f94dd37, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6257800485735965347, guid: cf8443763fc34314490f8a3e2f94dd37, type: 3}
+      propertyPath: m_TagString
+      value: SafeZone
       objectReference: {fileID: 0}
     - target: {fileID: 6954531691785998512, guid: cf8443763fc34314490f8a3e2f94dd37, type: 3}
       propertyPath: m_LocalPosition.x
@@ -47044,6 +47160,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageOutsideZone: 5
   damageInterval: 2
+  checkRadius: 0.3
+  groundOffset: 0.5
+  safeZoneLayer:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!114 &1832299463
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47057,7 +47178,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healAmount: 5
-  healInterval: 2
+  healInterval: 20
+  rayLength: 2
+  rayOffset: 0.1
+  safeZoneLayer:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!114 &1832299469
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -50523,6 +50649,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1398826}
     m_Modifications:
+    - target: {fileID: 2240568445028064769, guid: cf8443763fc34314490f8a3e2f94dd37, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5684943981178066559, guid: cf8443763fc34314490f8a3e2f94dd37, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -50530,6 +50660,14 @@ PrefabInstance:
     - target: {fileID: 6257800485735965347, guid: cf8443763fc34314490f8a3e2f94dd37, type: 3}
       propertyPath: m_Name
       value: Floor Tile 01 (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6257800485735965347, guid: cf8443763fc34314490f8a3e2f94dd37, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6257800485735965347, guid: cf8443763fc34314490f8a3e2f94dd37, type: 3}
+      propertyPath: m_TagString
+      value: SafeZone
       objectReference: {fileID: 0}
     - target: {fileID: 6954531691785998512, guid: cf8443763fc34314490f8a3e2f94dd37, type: 3}
       propertyPath: m_LocalPosition.x
@@ -51569,6 +51707,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1398826}
     m_Modifications:
+    - target: {fileID: 2240568445028064769, guid: cf8443763fc34314490f8a3e2f94dd37, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5684943981178066559, guid: cf8443763fc34314490f8a3e2f94dd37, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -51576,6 +51718,14 @@ PrefabInstance:
     - target: {fileID: 6257800485735965347, guid: cf8443763fc34314490f8a3e2f94dd37, type: 3}
       propertyPath: m_Name
       value: Floor Tile 01 (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6257800485735965347, guid: cf8443763fc34314490f8a3e2f94dd37, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6257800485735965347, guid: cf8443763fc34314490f8a3e2f94dd37, type: 3}
+      propertyPath: m_TagString
+      value: SafeZone
       objectReference: {fileID: 0}
     - target: {fileID: 6954531691785998512, guid: cf8443763fc34314490f8a3e2f94dd37, type: 3}
       propertyPath: m_LocalPosition.x
@@ -51642,6 +51792,10 @@ PrefabInstance:
     - target: {fileID: 1851013419894056381, guid: 32467b8dc355cd04da356b17dbac4f29, type: 3}
       propertyPath: m_Name
       value: Wall Corner (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1851013419894056381, guid: 32467b8dc355cd04da356b17dbac4f29, type: 3}
+      propertyPath: m_TagString
+      value: SafeZone
       objectReference: {fileID: 0}
     - target: {fileID: 3452931867044665262, guid: 32467b8dc355cd04da356b17dbac4f29, type: 3}
       propertyPath: m_LocalPosition.x

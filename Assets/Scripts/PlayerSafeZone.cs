@@ -6,58 +6,50 @@ public class PlayerSafeZone : MonoBehaviour
     public float damageInterval = 2f;
     private float damageTimer;
 
+    public float checkRadius = 1f; 
+    public float groundOffset = 0.5f; 
+    public LayerMask safeZoneLayer;  
+
     private bool isInSafeZone = true;
-    private PlayerHealth playerHealth; 
+    private PlayerHealth playerHealth;
 
     void Start()
     {
         playerHealth = GetComponent<PlayerHealth>();
         damageTimer = damageInterval;
-
-   
-        Collider[] colliders = Physics.OverlapSphere(transform.position, 0.1f);
-        bool foundSafeZone = false;
-
-        foreach (Collider col in colliders)
-        {
-            if (col.CompareTag("SafeZone"))
-            {
-                foundSafeZone = true;
-                break;
-            }
-    }
-
-    isInSafeZone = foundSafeZone;
     }
 
     void Update()
+{
+    Vector3 origin = transform.position + Vector3.up * 0.1f; 
+    float rayLength = 2f;
+
+    RaycastHit hit;
+    if (Physics.Raycast(origin, Vector3.down, out hit, rayLength, safeZoneLayer))
     {
-        if (!isInSafeZone)
-        {
-            damageTimer -= Time.deltaTime;
-            if (damageTimer <= 0f)
-            {
-                playerHealth.TakeDamage(damageOutsideZone);
-                damageTimer = damageInterval;
-            }
-        }
+        isInSafeZone = true;
+    }
+    else
+    {
+        isInSafeZone = false;
     }
 
-    private void OnTriggerEnter(Collider other)
+    Debug.Log("In safe zone (Raycast): " + isInSafeZone);
+    
+    if (!isInSafeZone)
     {
-        if (other.CompareTag("SafeZone"))
+        damageTimer -= Time.deltaTime;
+        if (damageTimer <= 0f)
         {
-            isInSafeZone = true;
-            Debug.Log("player a intrat in zona sigura.");
+            playerHealth.TakeDamage(damageOutsideZone);
+            damageTimer = damageInterval;
         }
     }
+    else
+    {
+        damageTimer = damageInterval;
+    }
+}
 
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("SafeZone"))
-        {
-            isInSafeZone = false;
-            Debug.Log("player a iesit din zona sigura.");
-        }
-    }
+
 }
