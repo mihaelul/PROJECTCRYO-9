@@ -20,18 +20,6 @@ public class EnemyFollow : MonoBehaviour
     public bool playerInAttackRange;
 
 
-    private void Start()
-{
-    if (!agent.isOnNavMesh)
-    {
-        Debug.LogError("Agentul NU este pe NavMesh! Ajustează poziția și offset-ul.");
-    }
-    else
-    {
-        Debug.Log("Agent este pe NavMesh.");
-    }
-}
-
     private void Awake()
     {
         player = GameObject.Find("PlayerModel").transform;
@@ -55,7 +43,6 @@ public class EnemyFollow : MonoBehaviour
     }
     else if (!playerInSightRange)
     {
-        // Dacă pierde jucătorul din vedere, forțează patrulare
         walkPointSet = false;
         Patroling();
     }
