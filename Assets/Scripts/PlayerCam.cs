@@ -17,18 +17,14 @@ public class PlayerCam : MonoBehaviour
 
     // ground movement
     private Rigidbody rb;
-    public float moveSpeed = 3f;
     private Vector2 moveInput;
+    public float moveSpeed = 3f;
     private bool isMoving = false;
 
     // jumping
     public float jumpForce = 4f;
-    public float fallMultiplier = 2.5f;
-    public float ascendMultiplier = 2f;
     private bool isGrounded = true;
     public LayerMask groundLayer;
-    private float groundCheckTimer = 0f;
-    private float groundCheckDelay = 0.3f;
     private float playerHeight;
     private float raycastDistance;
 
@@ -71,6 +67,22 @@ public class PlayerCam : MonoBehaviour
     public Transform CameraHolder;
     // private Vector3 targetCenter;
 
+    // stair handling
+
+    public GameObject stepRayUpper;
+
+    public GameObject stepRayLower;
+
+    public float stepHeight = 0.3f;
+    public float stepSmooth = 0.1f;
+
+    // wall detection
+
+    public float wallCheckDistance = 0.5f;
+    public float wallSlideGravity = 2f;
+
+    private bool isAgainstWall = false;
+
     // actions
     private InputAction sprintAction;
     private InputAction lookAction;
@@ -110,6 +122,15 @@ public class PlayerCam : MonoBehaviour
 
         // apply movement
         Vector2 input = moveAction.ReadValue<Vector2>();
+
+        //  if (Mathf.Abs(input.y) > 0.1f && input.x == 0)
+        // {
+        //     if (Physics.Raycast(transform.position, transform.forward, 0.5f, groundLayer)) 
+        //     {
+        //         input.x = 0.2f * Mathf.Sign(Random.Range(-1f, 1f)); // Tiny random diagonal bias
+        //     }
+        // }
+
         //  Debug.Log("Move Input: " + input); // Check if WASD/Gamepad inputs register
         Vector3 cameraForward = Vector3.ProjectOnPlane(camHolder.forward, Vector3.up).normalized;
         Vector3 cameraRight = Vector3.ProjectOnPlane(camHolder.right, Vector3.up).normalized;
@@ -137,35 +158,28 @@ public class PlayerCam : MonoBehaviour
 
     bool CheckGrounded()
     {
-        float radius = GetComponent<CapsuleCollider>().radius * 0.9f; // player size = 1f
+        CapsuleCollider col = GetComponent<CapsuleCollider>();
+        if (col == null) return false;
 
-        Vector3 rayStart = transform.position + Vector3.up * 0.1f; // start slightly above feet
+        Vector3 bottom = transform.TransformPoint(col.center - Vector3.up * (col.height / 2 - col.radius));
 
-        Vector3[] rayDirections = new Vector3[]
+        float checkDistance = 0.15f;
+        float checkRadius = col.radius * 0.9f;
+
+        if (!Physics.CheckSphere(bottom, checkRadius))
+            return false;
+
+        RaycastHit hit;
+        if (Physics.SphereCast(bottom + Vector3.up * 0.1f, checkRadius * 0.8f, Vector3.down, out hit, checkDistance + 0.1f))
         {
-            Vector3.down,                            // center
-            Vector3.down + transform.forward * 0.5f, // front
-            Vector3.down - transform.forward * 0.5f, // back
-            Vector3.down + transform.right * 0.5f,   // right
-            Vector3.down - transform.right * 0.5f    // left
-        };
+            if (hit.collider.isTrigger || hit.collider == col)
+                return false;
 
-        foreach (Vector3 dir in rayDirections)
-        {
-            if (Physics.Raycast(rayStart, dir, raycastDistance, groundLayer))
-                return true;    // at least one ray hit ground
+            float slopeAngle = Vector3.Angle(hit.normal, Vector3.up);
+            return slopeAngle <= maxSlopeAngle;
         }
-        return false;
 
-        // foreach (RaycastHit hit in hits)
-        // {
-        //     float slopeAngle = Vector3.Angle(hit.normal, Vector3.up);
-        //     if (slopeAngle <= 45f)
-        //     {
-        //         return true;
-        //     }
-        // }
-        // return false;
+        return false;
     }
 
     void Jump()
@@ -178,59 +192,63 @@ public class PlayerCam : MonoBehaviour
         rb.linearVelocity = new Vector3(rb.linearVelocity.x, jumpForce, rb.linearVelocity.z);
     }
 
-    void ApplyJumpPhysics()
+    // void stepClimb()
+    // {
+    //     RaycastHit hitLower;
+
+    //     if (Physics.Raycast(stepRayLower.transform.position, cameraTransform.TransformDirection(Vector3.forward), out hitLower, 0.1f))
+    //     {
+    //         RaycastHit hitUpper;
+    //         if (!Physics.Raycast(stepRayUpper.transform.position, cameraTransform.TransformDirection(Vector3.forward), out hitLower, 0.2f))
+    //         {
+    //             rb.position -= new Vector3(0f, -stepSmooth, 0f);
+    //         }
+    //     }
+    // }
+
+    void stepClimb()
     {
-        if (rb.linearVelocity.y < 0)
+        float sphereRadius = 0.1f;
+        float lowerCastDistance = 0.1f;
+        float upperCastDistance = 0.2f;
+
+        if (Physics.SphereCast(stepRayLower.transform.position, sphereRadius, transform.forward, out RaycastHit hitLower, lowerCastDistance))
         {
-            rb.linearVelocity += Vector3.up * Physics.gravity.y * (fallMultiplier - 2f) * Time.fixedDeltaTime;
-        }
-        else if (rb.linearVelocity.y > 0)
-        {
-            rb.linearVelocity += Vector3.up * Physics.gravity.y * (ascendMultiplier - 1.2f) * Time.fixedDeltaTime;
+            if (!Physics.SphereCast(stepRayUpper.transform.position, sphereRadius, transform.forward, out _, upperCastDistance))
+            {
+                float stepHeight = hitLower.point.y - stepRayLower.transform.position.y;
+                if (stepHeight > 0 && stepHeight <= stepHeight)
+                {
+                    rb.position += new Vector3(0f, stepSmooth * Time.fixedDeltaTime, 0f);
+                }
+            }
         }
     }
 
-    // void CreateStaminaBar()
-    // {
-    //     // create canvas
-    //     GameObject canvasGO = new GameObject("StaminaCanvas");
-    //     Canvas canvas = canvasGO.AddComponent<Canvas>();
-    //     canvas.renderMode = RenderMode.ScreenSpaceOverlay;
-    //     staminaCanvas.AddComponent<CanvasScaler>();
-    //     staminaCanvas.AddComponent<GraphicRaycaster>();
-
-    //     // create slider
-    //     GameObject sliderGO = new GameObject("StaminaBar");
-    //     sliderGO.transform.SetParent(canvasGO.transform);
-    //     staminaBar = sliderGO.AddComponent<Slider>();
-    //     //staminaBar.color = new Color32(2, 215, 255, 255);   // light blue
-
-    //     // slider setup
-    //     staminaBar.minValue = 0;
-    //     staminaBar.maxValue = maxStamina;
-    //     staminaBar.wholeNumbers = false;
-
-    //     // set background
-    //     GameObject bgGO = new GameObject("Background");
-    //     bgGO.transform.SetParent(sliderGO.transform);
-    //     Image bgImage = bgGO.AddComponent<Image>();
-    //     bgImage.color = new Color32(155, 184, 195, 255);   // blue-ish grey
-
-    //     // fill area
-    //     GameObject fillAreaGO = new GameObject("Fill Area");
-    //     fillAreaGO.transform.SetParent(sliderGO.transform);
-    //     RectTransform fillAreaRect = fillAreaGO.AddComponent<RectTransform>();
-    //     fillAreaRect.sizeDelta = new Vector2(-20, 0); // Padding
-
-    //     // fill
-    //     GameObject fillGO = new GameObject("Fill");
-    //     fillGO.transform.SetParent(fillAreaGO.transform);
-    //     fillImage.color = new Color32(2, 215, 255, 255);   // light blue
-    //     fillImage.type = Image.Type.Filled;
-    //     fillImage.fillMethod = Image.FillMethod.Horizontal;
-
-    //     staminaBar.handleRect = null;
-    // }
+    void HandleWallCollision()
+    {
+        // Check for walls in front of player
+        RaycastHit wallHit;
+        isAgainstWall = Physics.Raycast(transform.position, transform.forward, 
+                                    out wallHit, wallCheckDistance);
+        
+        // If against wall while airborne
+        if (isAgainstWall && !isGrounded)
+        {
+            // Apply downward force to prevent floating
+            rb.linearVelocity = new Vector3(rb.linearVelocity.x, 
+                                        Mathf.Max(rb.linearVelocity.y, -wallSlideGravity), 
+                                        rb.linearVelocity.z);
+            
+            // Reduce forward movement against walls
+            if (moveInput.y > 0.1f) // If pressing forward
+            {
+                Vector3 vel = rb.linearVelocity;
+                vel.z = vel.z * 0.3f; // Reduce forward velocity
+                rb.linearVelocity = vel;
+            }
+        }
+    }
 
     void UpdateStaminaUI()
     {
@@ -267,12 +285,12 @@ public class PlayerCam : MonoBehaviour
             staminaFill = staminaBar.fillRect.GetComponent<Image>();
 
         // If not attached to the main camera, take control of it
-            if (Camera.main != null && Camera.main.transform != transform)
-            {
-                transform.SetPositionAndRotation(Camera.main.transform.position, Camera.main.transform.rotation);
-                Destroy(Camera.main.gameObject); // Remove old camera
-                gameObject.tag = "Main Camera"; // Claim the tag
-            }
+        if (Camera.main != null && Camera.main.transform != transform)
+        {
+            transform.SetPositionAndRotation(Camera.main.transform.position, Camera.main.transform.rotation);
+            Destroy(Camera.main.gameObject); // Remove old camera
+            gameObject.tag = "Main Camera"; // Claim the tag
+        }
 
         if (CameraHolder == null)
         {
@@ -342,7 +360,10 @@ public class PlayerCam : MonoBehaviour
         CapsuleCollider col = GetComponent<CapsuleCollider>();
         standHeight = col.height;
         targetHeight = standHeight;
-        // targetCenter = col.center;
+
+        stepRayUpper.transform.position = new Vector3(stepRayUpper.transform.position.x, stepHeight, stepRayUpper.transform.position.z);
+
+        // stepClimb();
 
         // active actions
         moveAction.Enable();
@@ -350,9 +371,6 @@ public class PlayerCam : MonoBehaviour
         jumpAction.Enable();
         sprintAction.Enable();
         crouchAction.Enable();
-
-        //Cursor.lockState = CursorLockMode.Locked;
-        //Cursor.visible = false;
 
         // SANDA- am nevoie de cursor pentru UI
         //Cursor.lockState = CursorLockMode.Locked;
@@ -363,9 +381,9 @@ public class PlayerCam : MonoBehaviour
     {
         Debug.DrawRay(transform.position, Vector3.down * (raycastDistance + slopeRayExtraLength), Color.blue);
         // Replace your ground check with:
-        RaycastHit hit;
-        isGrounded = Physics.Raycast(transform.position, Vector3.down, out hit,
-                    raycastDistance, groundLayer);
+        // RaycastHit hit;
+        // isGrounded = Physics.Raycast(transform.position, Vector3.down, out hit,
+        //             raycastDistance, groundLayer);
 
         // Visual debug
         // Debug.DrawRay(transform.position, Vector3.down * raycastDistance,
@@ -373,7 +391,9 @@ public class PlayerCam : MonoBehaviour
 
         RotateCamera();
 
+        //Debug.Log("Ground Layer: " + LayerMask.LayerToName(groundLayer.value));
         isGrounded = CheckGrounded();
+        // Debug.Log("isGrounded " + isGrounded);
 
         MovePlayer();
 
@@ -398,7 +418,7 @@ public class PlayerCam : MonoBehaviour
         // fixed - crouch nu ar tb sa mai afecteze dimensiunea obiectelor acum - Alex
         CameraHolder.localPosition = Vector3.Lerp(CameraHolder.localPosition, new Vector3(0, targetHeight, 0), crouchTransitionSpeed * Time.deltaTime);
 
-        Debug.Log("Jump Pressed: " + jumpAction.triggered);
+        // Debug.Log("Jump Pressed: " + jumpAction.triggered);
         // Debug.Log("Crouch Pressed: " + crouchAction.triggered);
 
         // check if sprinting already
@@ -423,6 +443,31 @@ public class PlayerCam : MonoBehaviour
 
         UpdateStaminaUI();
     }
+
+    void FixedUpdate()
+    {
+        stepClimb();
+        // HandleWallCollision() NU merge inca :/. Incerc sa il repar maine cand o sa imbunatatesc si urcatul pe scari - Alex
+        HandleWallCollision();
+    }
+
+// void HandleStairs() {
+//     RaycastHit hit;
+//     Vector3 rayStart = transform.position - Vector3.up * (GetComponent<CapsuleCollider>().height / 2 - 0.1f);
+    
+//     // Check for a stair or slope in front of the player
+//     if (Physics.Raycast(rayStart, transform.forward, out hit, 0.5f, groundLayer)) {
+//         float stairHeight = hit.point.y - rayStart.y;
+        
+//         // If it's a stair (not a wall) and within climbable height
+//         if (stairHeight > 0 && stairHeight <= maxStairHeight) {
+//             // Smoothly lift the player up the stair
+//             Vector3 newPos = transform.position;
+//             newPos.y = Mathf.Lerp(transform.position.y, hit.point.y + 1f, stairSmoothSpeed * Time.fixedDeltaTime);
+//             rb.MovePosition(newPos);
+//         }
+//     }
+// }
     void OnDestroy()
     {
         moveAction?.Disable();
