@@ -1,12 +1,12 @@
 using UnityEngine;
+using UnityEngine.AI;
 using System.Collections;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField] private GameObject enemyPrefab;
-    [SerializeField] private BoxCollider spawnArea;
-    [SerializeField] private float spawnInterval = 2f;
-    [SerializeField] private int maxEnemies = 10;
+    public GameObject enemyPrefab;
+    public float spawnInterval = 2f;
+    public float spawnRadius = 5f;
 
     private void Start()
     {
@@ -17,25 +17,22 @@ public class EnemySpawner : MonoBehaviour
     {
         while (true)
         {
-            int currentEnemies = GameObject.FindGameObjectsWithTag("Enemy").Length;
-            if (currentEnemies < maxEnemies)
-            {
-                Vector3 spawnPos = GetRandomPointInBox(spawnArea);
-                Instantiate(enemyPrefab, spawnPos, Quaternion.identity);
-            }
+            Vector3 spawnPos = GetNavMeshPosition(transform.position, spawnRadius);
+            Instantiate(enemyPrefab, spawnPos, Quaternion.identity);
             yield return new WaitForSeconds(spawnInterval);
         }
     }
 
-    private Vector3 GetRandomPointInBox(BoxCollider box)
+    private Vector3 GetNavMeshPosition(Vector3 origin, float radius)
     {
-        Vector3 center = box.center + box.transform.position;
-        Vector3 size = box.size;
-
-        float x = Random.Range(center.x - size.x / 2, center.x + size.x / 2);
-        float y = center.y; 
-        float z = Random.Range(center.z - size.z / 2, center.z + size.z / 2);
-
-        return new Vector3(x, y, z);
+        if (NavMesh.SamplePosition(origin, out NavMeshHit hit, radius, NavMesh.AllAreas))
+        {
+            return hit.position;
+        }
+        else
+        {
+            Debug.LogWarning("Nu am gasit NavMesh în jurul spawnerului!");
+            return origin;
+        }
     }
 }
