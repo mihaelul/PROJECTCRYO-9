@@ -5788,6 +5788,38 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 61065208e46478a47815444ce1dbd689, type: 3}
   m_PrefabInstance: {fileID: 190233426}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &193780857
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 193780858}
+  m_Layer: 0
+  m_Name: Container6
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &193780858
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 193780857}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.269, y: -1.13, z: 2.577}
+  m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1006656971}
+  m_Father: {fileID: 796553498}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &195167752
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23299,6 +23331,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3237742957050096642, guid: 83724ae50978c73498e14984e77f7e45, type: 3}
       insertIndex: -1
       addedObject: {fileID: 159953963}
+    - targetCorrespondingSourceObject: {fileID: 3237742957050096642, guid: 83724ae50978c73498e14984e77f7e45, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 193780858}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 5568782840503503817, guid: 83724ae50978c73498e14984e77f7e45, type: 3}
       insertIndex: -1
@@ -27694,31 +27729,31 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1725114703}
+    m_TransformParent: {fileID: 193780858}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 86ed4d96923f3bb4396bc34d735e57e2, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 86ed4d96923f3bb4396bc34d735e57e2, type: 3}
       propertyPath: m_LocalScale.y
-      value: 2.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 86ed4d96923f3bb4396bc34d735e57e2, type: 3}
       propertyPath: m_LocalScale.z
-      value: 2.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 86ed4d96923f3bb4396bc34d735e57e2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.25
+      value: -0.010394037
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 86ed4d96923f3bb4396bc34d735e57e2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.87
+      value: -0.07051122
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 86ed4d96923f3bb4396bc34d735e57e2, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.855
+      value: 0.0129983425
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 86ed4d96923f3bb4396bc34d735e57e2, type: 3}
       propertyPath: m_LocalRotation.w
@@ -27752,10 +27787,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: OxygenTank (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 86ed4d96923f3bb4396bc34d735e57e2, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 86ed4d96923f3bb4396bc34d735e57e2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2028745648}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 86ed4d96923f3bb4396bc34d735e57e2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2028745647}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 86ed4d96923f3bb4396bc34d735e57e2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2028745650}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 86ed4d96923f3bb4396bc34d735e57e2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2028745649}
   m_SourcePrefab: {fileID: 100100000, guid: 86ed4d96923f3bb4396bc34d735e57e2, type: 3}
 --- !u!4 &1006656971 stripped
 Transform:
@@ -44989,7 +45040,6 @@ Transform:
   - {fileID: 757906112}
   - {fileID: 1848780586}
   - {fileID: 905774643}
-  - {fileID: 1006656971}
   - {fileID: 1081031978}
   - {fileID: 1003227928}
   - {fileID: 951466049}
@@ -51800,6 +51850,96 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: ce1e1c6afeb8a4c4da4ab18e701d36cc, type: 3}
   m_PrefabInstance: {fileID: 2026284898}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2028745644 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 86ed4d96923f3bb4396bc34d735e57e2, type: 3}
+  m_PrefabInstance: {fileID: 1006656970}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &2028745647
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2028745644}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 1
+--- !u!65 &2028745648
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2028745644}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.17589286, y: 0.17625627, z: 0.55482656}
+  m_Center: {x: 0, y: 0.00042380765, z: -0.14146861}
+--- !u!114 &2028745649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2028745644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa047ef8f85e87748929cb66c592bd53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  titlu: Oxygen Tank
+  desc: O2 - Proaspat sintetizat.
+--- !u!114 &2028745650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2028745644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03eab91e3605b0b4a8a777881c595225, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rigidBody: {fileID: 2028745647}
+  BoxCollider: {fileID: 2028745648}
+  player: {fileID: 796553499}
+  itemContainer: {fileID: 193780858}
+  fpsCam: {fileID: 796553498}
+  pickUpRange: 5
+  dropForwardForce: 2
+  dropUpwardForce: 2
+  itemOk: 0
+  itemData: {fileID: 11400000, guid: a30d0fd53df921149ad82b3f96368c4e, type: 2}
+  inventoryManager: {fileID: 177026263}
 --- !u!1 &2029212349
 GameObject:
   m_ObjectHideFlags: 0
