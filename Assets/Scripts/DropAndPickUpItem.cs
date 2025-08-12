@@ -105,6 +105,16 @@ public class DropAndPickUpItem : MonoBehaviour
 
     public void PickUp() {
 
+        // pentru masca de gaz special 
+        if (itemData != null && itemData.itemName == "Mask")
+        {
+            // masca -> logica speciala
+            SetState(ItemState.InInventory); // doar ca sa dispara din scena, dar nu o pune in inventar si nici nu o distruge
+            GasMaskUi.instance.EquipGasMask(this.gameObject);
+            this.gameObject.SetActive(false);
+            return;
+        }
+
         // ------- update 31.07 -----
         // daca avem un obiect in mana si primim semnal de a lua altul, itemul din mana se duce in inventar
         // Itemul din mana nu se aduga in inventar el se aduga abaia cand se ia alt item in mana altfel s-ar pune de 2 ori in inventar
