@@ -1,41 +1,23 @@
 using UnityEngine;
 
-public class FrontBackManager : MonoBehaviour
+public class laborator_computer_menu : MonoBehaviour
 {
-    [System.Serializable]
-    public class MovableObject
+    public GameObject singleImage;  // imaginea ta, o singura
+
+    private bool isVisible = false;
+
+    // Daca vrei să afisezi imaginea
+     public void ShowImage()
     {
-        public string name;
-        public GameObject obj;
+        if (singleImage != null && !singleImage.activeSelf)
+            singleImage.SetActive(true);
     }
 
-    public MovableObject[] objects;
-    public float frontZ = -0.1f;
-    public float backZ = 1f;
-
-    private int currentFrontIndex = -1;
-
-    public void MoveObjectToFront(int index)
+    // Dacă vrei să ascunzi imaginea
+    public void HideImage()
     {
-        if (index < 0 || index >= objects.Length)
-        {
-            Debug.LogWarning("Index invalid.");
-            return;
-        }
-
-        // Dacă deja este în față, nu face nimic
-        if (currentFrontIndex == index) return;
-
-        for (int i = 0; i < objects.Length; i++)
-        {
-            var obj = objects[i].obj;
-            if (obj == null) continue;
-
-            Vector3 pos = obj.transform.position;
-            pos.z = (i == index) ? frontZ : backZ;
-            obj.transform.position = pos;
-        }
-
-        currentFrontIndex = index;
+        isVisible = false;
+        if (singleImage != null)
+            singleImage.SetActive(false);
     }
 }

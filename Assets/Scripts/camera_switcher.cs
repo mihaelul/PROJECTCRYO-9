@@ -1,42 +1,59 @@
 using UnityEngine;
 
-public class CameraSwitchMenu : MonoBehaviour
+public class CanvasSwitchMenu : MonoBehaviour
 {
-    public Camera mainCamera;       // camera gameplay
-    public Camera menuCamera;       // camera pentru meniu
-    public GameObject menuUI;       // UI cu 4 butoane
+    public GameObject gameplayCanvas; // HUD sau canvas-ul activ in gameplay
+    public GameObject menuCanvas;     // Canvas-ul cu butoane pentru meniu
+    public MonoBehaviour playerController; // Scriptul care controlează player-ul
 
     private bool playerInRange = false;
+    private bool menuOpen = false;
 
     void Start()
     {
-        menuUI.SetActive(false);
-        menuCamera.gameObject.SetActive(false);
-        mainCamera.gameObject.SetActive(true);
+        menuCanvas.SetActive(false);
+        gameplayCanvas.SetActive(true);
     }
 
     void Update()
     {
         if (playerInRange && Input.GetKeyDown(KeyCode.E))
         {
-            OpenMenu();
+            if (!menuOpen)
+                OpenMenu();
+            else
+                CloseMenu();
         }
     }
 
     void OpenMenu()
     {
-        mainCamera.gameObject.SetActive(false);
-        menuCamera.gameObject.SetActive(true);
-        menuUI.SetActive(true);
-        // Dacă ai control player, aici îl poți dezactiva
+        gameplayCanvas.SetActive(false);
+        menuCanvas.SetActive(true);
+        menuOpen = true;
+
+        // Dezactivează controlul playerului
+        if (playerController != null) 
+            playerController.enabled = false;
+
+        // Arată cursorul și permite interacțiunea cu UI
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
     public void CloseMenu()
     {
-        menuUI.SetActive(false);
-        menuCamera.gameObject.SetActive(false);
-        mainCamera.gameObject.SetActive(true);
-        // Reactivare control player dacă l-ai oprit
+        menuCanvas.SetActive(false);
+        gameplayCanvas.SetActive(true);
+        menuOpen = false;
+
+        // Reactivează controlul playerului
+        if (playerController != null)
+            playerController.enabled = true;
+
+        // Ascunde cursorul
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     private void OnTriggerEnter(Collider other)
