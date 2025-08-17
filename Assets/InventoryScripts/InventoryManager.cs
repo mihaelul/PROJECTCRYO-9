@@ -27,11 +27,16 @@ public class InventoryManager : MonoBehaviour
             {
                 slot.ClearDetails();
             }
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+            
         }
         else if (Input.GetKeyDown(KeyCode.I) && !menuActivated)
         {
             InventoryMenu.SetActive(true);
             menuActivated = true;
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
 
         // -------- update Sanda --------

@@ -11,6 +11,7 @@ public class ManagerItem : MonoBehaviour
     public float interactionDistance = 3f;
     public LayerMask interactLayer; // layerul pe care se afla obiectele (cel cu care o sa interactioneze raza)
     public Camera fpsCamera;
+    public static DropAndPickUpItem pickedByE; // itemul luat cu E in acest moment
 
 
     private void Update()
@@ -47,6 +48,8 @@ public class ManagerItem : MonoBehaviour
             if (item != null)
             {
                 item.PickUp();
+                pickedByE = item;
+
             }
         }
     }
