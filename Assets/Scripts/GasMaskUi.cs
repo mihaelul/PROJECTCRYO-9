@@ -10,6 +10,9 @@ public class GasMaskUi : MonoBehaviour
     private GameObject equippedGasMask; // referinta la obiectul din scena
     public Transform fpsCam; // referinta la camera fps
 
+    public bool isGasMaskEquipped = false; // adaugat
+
+
     void Awake()
     {
         instance = this;
@@ -22,6 +25,7 @@ public class GasMaskUi : MonoBehaviour
         equippedGasMask = maskObject;
         slotImage.sprite = gasMaskIcon;
         slotImage.enabled = true;
+        isGasMaskEquipped = true; // marchez ca masca e activa
         Debug.Log("EquipGasMask called with: " + maskObject);
 
     }
@@ -49,6 +53,7 @@ public class GasMaskUi : MonoBehaviour
             Debug.LogWarning("UnequipGasMask: either equippedGasMask or fpsCam is null.");
         }
 
+        isGasMaskEquipped = false; // masca nu mai e activa
         slotImage.enabled = false;
     }
 

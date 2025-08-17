@@ -38,6 +38,15 @@ public class PlayerSafeZone : MonoBehaviour
     
     if (!isInSafeZone)
     {
+         // verificam daca masca e echipata
+         if (GasMaskUi.instance != null && GasMaskUi.instance.isGasMaskEquipped)
+         {
+                // avem masca -> nu luam damage
+                damageTimer = damageInterval; // resetam timerul ca si cum ar fi in safe zone
+                Debug.Log("Protejat de masca, fara damage.");
+            return;
+         }
+        
         damageTimer -= Time.deltaTime;
         if (damageTimer <= 0f)
         {

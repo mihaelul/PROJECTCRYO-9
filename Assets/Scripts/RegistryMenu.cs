@@ -41,7 +41,7 @@ public class ShowRegistryOnE : MonoBehaviour
 
     void Close() {
         panelRoot.SetActive(false);
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        //Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.visible = false;
     }
 }

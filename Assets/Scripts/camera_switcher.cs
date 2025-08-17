@@ -52,8 +52,10 @@ public class CanvasSwitchMenu : MonoBehaviour
             playerController.enabled = true;
 
         // Ascunde cursorul
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        // Nu mai ascudem cursorul ca trebuie sa l folosim sa interactionam cu UI
+        // daca il ascunzi dupa ce termini cu meniul celelalte nu o sa functioneze - Sanda
+        //Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.visible = false;
     }
 
     private void OnTriggerEnter(Collider other)
