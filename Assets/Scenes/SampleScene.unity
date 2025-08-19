@@ -8143,7 +8143,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &252676914
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16435,6 +16435,7 @@ MonoBehaviour:
   ManageritemLayer:
     serializedVersion: 2
     m_Bits: 128
+  task_manager: {fileID: 0}
 --- !u!1001 &531804737
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18966,6 +18967,7 @@ MonoBehaviour:
   ManageritemLayer:
     serializedVersion: 2
     m_Bits: 128
+  task_manager: {fileID: 0}
 --- !u!1 &618284822
 GameObject:
   m_ObjectHideFlags: 0
@@ -20955,6 +20957,7 @@ MonoBehaviour:
   ManageritemLayer:
     serializedVersion: 2
     m_Bits: 128
+  task_manager: {fileID: 0}
 --- !u!4 &675940158 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 86ed4d96923f3bb4396bc34d735e57e2, type: 3}
@@ -35858,7 +35861,7 @@ MonoBehaviour:
   dropForwardForce: 2
   dropUpwardForce: 2
   itemOk: 0
-  itemData: {fileID: 11400000, guid: a30d0fd53df921149ad82b3f96368c4e, type: 2}
+  itemData: {fileID: 11400000, guid: 61edee72d46256a4c8d9587ec379549e, type: 2}
   inventoryManager: {fileID: 177026263}
 --- !u!54 &1262907325
 Rigidbody:
@@ -54707,7 +54710,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2029212350
 RectTransform:
   m_ObjectHideFlags: 0
@@ -54724,8 +54727,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 198.2, y: 20.749}
-  m_SizeDelta: {x: -396.4, y: -41.498}
+  m_AnchoredPosition: {x: 198.20001, y: 20.749023}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2029212351
 MonoBehaviour:
@@ -54779,6 +54782,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6603cdf97b74cb24dba1b2bf38ac04cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  neededTanks: 0
   textPrefabTMP: {fileID: 1980541151}
   taskListContainer: {fileID: 2029212350}
 --- !u!114 &2029212354

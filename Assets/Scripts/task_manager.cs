@@ -4,6 +4,11 @@ using System.Collections.Generic;
 
 public class task_manager : MonoBehaviour
 {
+    // Alex - folosesc un contorul asta in ItemPlacement_O2.cs ca sa pot verifica 
+    // daca task-ul a fost terminat
+    [Header("O2 Variables")]
+    public int neededTanks;
+
     public GameObject textPrefabTMP;         // Prefab cu TextMeshProUGUI
     public Transform taskListContainer;      // Panel-ul cu VerticalLayout
 
@@ -11,6 +16,7 @@ public class task_manager : MonoBehaviour
     {
         public string descriere;
         public bool completat;
+        public TextMeshProUGUI taskUI;
 
         public Task(string descriere, bool completat = false)
         {
@@ -20,11 +26,10 @@ public class task_manager : MonoBehaviour
     }
 
     private List<Task> taskList = new List<Task>();
-
     void Start()
     {
         taskList.Add(new Task("Repara sistemul de oxigen din laborator."));
-        taskList.Add(new Task("Repara sistemul de apa din laborator."));
+        taskList.Add(new Task("Repara sistemul de filtrare a apei din laborator."));
         taskList.Add(new Task("Gaseste o masca pentru a completa exchipamentul de exterior."));
         taskList.Add(new Task("Gaseste hrana."));
         taskList.Add(new Task("Gaseste adresa bogatasului."));
@@ -32,11 +37,30 @@ public class task_manager : MonoBehaviour
         taskList.Add(new Task("Gaseste un cod pentru a realiza comunicarea cu societatea de pe Marte."));
         taskList.Add(new Task("Repara antena."));
         taskList.Add(new Task("Recupereaza codul de acces al camerei cu plante de la dr. Frank."));
-        taskList.Add(new Task("Repara sistemul de oxigen din laborator."));
         taskList.Add(new Task("Incarca plantele in racheta."));
         taskList.Add(new Task("Decoleaza spre Marte."));
 
         RenderTask();
+    }
+
+    void Update()
+    {
+        // Debug.Log($"neededTanks current value is {neededTanks}");
+        if (neededTanks == 0)
+        {
+            foreach (var task in taskList)
+            {
+                if (task.descriere == "Repara sistemul de oxigen din laborator.")
+                {
+                    if (task.completat != true)
+                    {
+                        task.completat = true;
+                        UpdateTask(task);   // Update UI
+                    }
+                    break;
+                }
+            }
+        }
     }
 
     void RenderTask()
@@ -49,8 +73,23 @@ public class task_manager : MonoBehaviour
             GameObject taskTextGO = Instantiate(textPrefabTMP, taskListContainer);
             TextMeshProUGUI tmpText = taskTextGO.GetComponent<TextMeshProUGUI>();
 
-            string simbol = task.completat ? "☑" : "□";
-            tmpText.text = $"{simbol} {task.descriere}";
+            task.taskUI = tmpText;
+
+            // string simbol = task.completat ? "☑" : "□";
+            tmpText.text = $"{task.descriere}";
+        }
+    }
+
+    void UpdateTask(Task task)
+    {
+        if (task.taskUI != null)
+        {
+            // string simbol = task.completat ? "☑" : "□";
+            task.taskUI.text = $"{task.descriere}";
+
+            // Optional visual enhancements
+            task.taskUI.fontStyle = task.completat ? FontStyles.Strikethrough : FontStyles.Normal;
+            task.taskUI.color = task.completat ? new Color(0.7f, 0.7f, 0.7f) : Color.white;
         }
     }
 }
