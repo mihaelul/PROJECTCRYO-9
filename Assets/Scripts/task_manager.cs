@@ -17,7 +17,7 @@ public class task_manager : MonoBehaviour
     [Header("Popup elements")]
 
     public GameObject O2_SuccessPopup;
-    public TMP_Text popupTaskDescription;
+    public string popupTaskDescription;
     public Image popupCrossout;
     public float delay = 5f;                     // cat timp popup-ul e activ
     private class Task
@@ -112,7 +112,7 @@ public class task_manager : MonoBehaviour
 
     void ShowTaskCompletePopup(Task task)
     {
-        popupTaskDescription.text = task.descriere;
+        popupTaskDescription = task.descriere;
         O2_SuccessPopup.SetActive(true);
 
         StopAllCoroutines();

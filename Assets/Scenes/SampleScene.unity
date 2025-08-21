@@ -5196,11 +5196,11 @@ RectTransform:
   - {fileID: 3243523792871821426}
   - {fileID: 922571207}
   - {fileID: 1356774678}
+  - {fileID: 641676075505753390}
   - {fileID: 1192889649}
   - {fileID: 1605232137}
   - {fileID: 1222845422}
   - {fileID: 2057023469}
-  - {fileID: 641676075505753390}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -55367,7 +55367,7 @@ MonoBehaviour:
   neededTanks: 0
   textPrefabTMP: {fileID: 1980541151}
   taskListContainer: {fileID: 2029212350}
-  O2_SuccessPopup: {fileID: 0}
+  O2_SuccessPopup: {fileID: 189112855}
   popupTaskDescription: {fileID: 0}
   popupCrossout: {fileID: 0}
   delay: 5
