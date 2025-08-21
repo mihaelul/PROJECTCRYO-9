@@ -1,6 +1,8 @@
 using UnityEngine;
 using TMPro;
 using System.Collections.Generic;
+using System.Collections;
+using UnityEngine.UI;
 
 public class task_manager : MonoBehaviour
 {
@@ -12,6 +14,12 @@ public class task_manager : MonoBehaviour
     public GameObject textPrefabTMP;         // Prefab cu TextMeshProUGUI
     public Transform taskListContainer;      // Panel-ul cu VerticalLayout
 
+    [Header("Popup elements")]
+
+    public GameObject O2_SuccessPopup;
+    public TMP_Text popupTaskDescription;
+    public Image popupCrossout;
+    public float delay = 5f;                     // cat timp popup-ul e activ
     private class Task
     {
         public string descriere;
@@ -26,6 +34,7 @@ public class task_manager : MonoBehaviour
     }
 
     private List<Task> taskList = new List<Task>();
+
     void Start()
     {
         taskList.Add(new Task("Repara sistemul de oxigen din laborator."));
@@ -40,6 +49,7 @@ public class task_manager : MonoBehaviour
         taskList.Add(new Task("Incarca plantele in racheta."));
         taskList.Add(new Task("Decoleaza spre Marte."));
 
+        SetupPopups();
         RenderTask();
     }
 
@@ -90,6 +100,27 @@ public class task_manager : MonoBehaviour
             // Optional visual enhancements
             task.taskUI.fontStyle = task.completat ? FontStyles.Strikethrough : FontStyles.Normal;
             task.taskUI.color = task.completat ? new Color(0.7f, 0.7f, 0.7f) : Color.white;
+
+            ShowTaskCompletePopup(task);
         }
+    }
+
+    void SetupPopups()
+    {
+        O2_SuccessPopup.SetActive(false);
+    }
+
+    void ShowTaskCompletePopup(Task task)
+    {
+        popupTaskDescription.text = task.descriere;
+        O2_SuccessPopup.SetActive(true);
+
+        StopAllCoroutines();
+        StartCoroutine(AutoHidePopup(delay));
+    }
+    IEnumerator AutoHidePopup(float delay)
+    {
+        yield return new WaitForSeconds(delay);    // wait 5 seconds
+        O2_SuccessPopup.SetActive(false);
     }
 }
