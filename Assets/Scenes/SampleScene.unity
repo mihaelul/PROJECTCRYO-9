@@ -5654,6 +5654,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ad67ebe1766c91b41b213c93318a53cb, type: 3}
       insertIndex: -1
       addedObject: {fileID: 290664468}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ad67ebe1766c91b41b213c93318a53cb, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 290664472}
   m_SourcePrefab: {fileID: 100100000, guid: ad67ebe1766c91b41b213c93318a53cb, type: 3}
 --- !u!1001 &188947666
 PrefabInstance:
@@ -9281,7 +9284,7 @@ MonoBehaviour:
   dropForwardForce: 2
   dropUpwardForce: 2
   itemOk: 0
-  itemData: {fileID: 0}
+  itemData: {fileID: 11400000, guid: 5d28b644b45fe9d4c836ce6277c2f42f, type: 2}
   inventoryManager: {fileID: 177026263}
 --- !u!54 &290664471
 Rigidbody:
@@ -9310,6 +9313,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &290664472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 290664466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b608f44d8cf08fa4aa07c6c43350d46b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  taskManager: {fileID: 2029212353}
+  contor: 0
 --- !u!1001 &294703212
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9776,6 +9793,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1324856176}
     m_Modifications:
+    - target: {fileID: 2970384649992280972, guid: 0ef31cdbe65a2f142beeb86422e34425, type: 3}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2970384649992280972, guid: 0ef31cdbe65a2f142beeb86422e34425, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -15203,6 +15224,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ad67ebe1766c91b41b213c93318a53cb, type: 3}
       insertIndex: -1
       addedObject: {fileID: 871387084}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ad67ebe1766c91b41b213c93318a53cb, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 871387088}
   m_SourcePrefab: {fileID: 100100000, guid: ad67ebe1766c91b41b213c93318a53cb, type: 3}
 --- !u!1001 &488993167
 PrefabInstance:
@@ -26407,7 +26431,7 @@ MonoBehaviour:
   dropForwardForce: 2
   dropUpwardForce: 2
   itemOk: 0
-  itemData: {fileID: 0}
+  itemData: {fileID: 11400000, guid: 7051d256704984b4d89c096ebdd2c792, type: 2}
   inventoryManager: {fileID: 177026263}
 --- !u!54 &871387087
 Rigidbody:
@@ -26436,6 +26460,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &871387088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 871387082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b608f44d8cf08fa4aa07c6c43350d46b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  taskManager: {fileID: 2029212353}
+  contor: 0
 --- !u!1001 &873826855
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27307,6 +27345,7 @@ MonoBehaviour:
   gasMaskIcon: {fileID: 21300000, guid: e9545ce8a7d5a7746af9a0aed0561a5d, type: 3}
   fpsCam: {fileID: 796553498}
   isGasMaskEquipped: 0
+  completMision: 0
 --- !u!1 &923241649
 GameObject:
   m_ObjectHideFlags: 0
@@ -41170,6 +41209,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ad67ebe1766c91b41b213c93318a53cb, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1801360966}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ad67ebe1766c91b41b213c93318a53cb, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1801360970}
   m_SourcePrefab: {fileID: 100100000, guid: ad67ebe1766c91b41b213c93318a53cb, type: 3}
 --- !u!1001 &1459835336
 PrefabInstance:
@@ -50005,7 +50047,7 @@ MonoBehaviour:
   dropForwardForce: 2
   dropUpwardForce: 2
   itemOk: 0
-  itemData: {fileID: 0}
+  itemData: {fileID: 11400000, guid: 9edbdf9320efe534c966035b1348aff6, type: 2}
   inventoryManager: {fileID: 177026263}
 --- !u!54 &1801360969
 Rigidbody:
@@ -50034,6 +50076,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &1801360970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1801360964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b608f44d8cf08fa4aa07c6c43350d46b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  taskManager: {fileID: 2029212353}
+  contor: 0
 --- !u!1 &1808341827
 GameObject:
   m_ObjectHideFlags: 0
@@ -55286,6 +55342,7 @@ GameObject:
   - component: {fileID: 2029212353}
   - component: {fileID: 2029212352}
   - component: {fileID: 2029212351}
+  - component: {fileID: 2029212356}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
@@ -55368,7 +55425,7 @@ MonoBehaviour:
   textPrefabTMP: {fileID: 1980541151}
   taskListContainer: {fileID: 2029212350}
   O2_SuccessPopup: {fileID: 189112855}
-  popupTaskDescription: {fileID: 0}
+  popupTaskDescription: 
   popupCrossout: {fileID: 0}
   delay: 5
 --- !u!114 &2029212354
@@ -55409,6 +55466,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2029212349}
   m_CullTransparentMesh: 1
+--- !u!114 &2029212356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2029212349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73e10704e50238a4ab89dcc29e1a9031, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2035309515
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -21,8 +21,10 @@ de el cand merge reactioneaza ca un obiect normal si se misca din pozitia lui, s
  */
 
 
+using System;
 using System.Collections;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 public class DropAndPickUpItem : MonoBehaviour
 {
@@ -115,6 +117,10 @@ public class DropAndPickUpItem : MonoBehaviour
             return;
         }
 
+        // mancare, pentru misiuni trimite semnal ca a luat mancare de jos
+        FoodMission.instance.OnFoodCollected(this);
+
+
         // ------- update 31.07 -----
         // daca avem un obiect in mana si primim semnal de a lua altul, itemul din mana se duce in inventar
         // Itemul din mana nu se aduga in inventar el se aduga abaia cand se ia alt item in mana altfel s-ar pune de 2 ori in inventar
@@ -156,7 +162,7 @@ public class DropAndPickUpItem : MonoBehaviour
 
         rigidBody.AddForce(fpsCam.up * dropUpwardForce, ForceMode.Impulse);
 
-        float random = Random.Range(-1f, 1f);
+        float random = UnityEngine.Random.Range(-1f, 1f);
         rigidBody.AddTorque(new Vector3(random, random, random) * 10);
 
         // eliminam din inventar itemul

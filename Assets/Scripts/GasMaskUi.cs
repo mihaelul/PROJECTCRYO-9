@@ -11,12 +11,15 @@ public class GasMaskUi : MonoBehaviour
     public Transform fpsCam; // referinta la camera fps
 
     public bool isGasMaskEquipped = false; // adaugat
-
+    //public task_manager taskManager; // task manager pentru misiune
+    public int completMision = 0;
 
     void Awake()
     {
         instance = this;
         slotImage.enabled = false; // ascuns la inceput
+
+
     }
 
     // Echipare masca
@@ -28,6 +31,14 @@ public class GasMaskUi : MonoBehaviour
         isGasMaskEquipped = true; // marchez ca masca e activa
         Debug.Log("EquipGasMask called with: " + maskObject);
 
+        completMision++;
+
+        // Marcheaza task-ul cu masca
+        //if (taskManager != null)
+        //{
+        //    taskManager.CompleteTaskByKeyword("Gaseste o masca pentru a completa exchipamentul de exterior.");
+        //    Debug.LogWarning("task complet masca");
+        //}
     }
 
     // Dezechipare masca (drop)
