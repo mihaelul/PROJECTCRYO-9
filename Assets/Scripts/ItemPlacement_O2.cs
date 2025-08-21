@@ -19,6 +19,12 @@ public class ItemPlacement_O2 : MonoBehaviour
 
     public task_manager task_manager;
 
+    // SANDA
+    // imagine misiune completata mai simplu decat popup
+    // am un manager pentru asta
+    // Poti sa stergi restul pentru popup
+    public Sprite missionCompletedImage; 
+
     void Awake()
     {
         if (task_manager == null)
@@ -44,6 +50,10 @@ public class ItemPlacement_O2 : MonoBehaviour
                         task_manager.neededTanks--;
                         // Debug.Log($"neededTanks current value is {task_manager.neededTanks}");
                         StartPlacement(o2Tank);
+
+                        // Sanda cand neededTanks e 0 o sa apara o poza cu misiunea completata
+                        if(task_manager.neededTanks == 0)
+                            MissionUIManager.instance.ShowMission(missionCompletedImage, 3f);
                         return;
                     }
                 }

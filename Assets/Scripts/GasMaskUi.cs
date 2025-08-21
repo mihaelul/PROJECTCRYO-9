@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,15 +11,15 @@ public class GasMaskUi : MonoBehaviour
     private GameObject equippedGasMask; // referinta la obiectul din scena
     public Transform fpsCam; // referinta la camera fps
 
+    public Sprite missionCompletedImage;
+
     public bool isGasMaskEquipped = false; // adaugat
-    //public task_manager taskManager; // task manager pentru misiune
     public int completMision = 0;
 
     void Awake()
     {
         instance = this;
         slotImage.enabled = false; // ascuns la inceput
-
 
     }
 
@@ -33,12 +34,11 @@ public class GasMaskUi : MonoBehaviour
 
         completMision++;
 
-        // Marcheaza task-ul cu masca
-        //if (taskManager != null)
-        //{
-        //    taskManager.CompleteTaskByKeyword("Gaseste o masca pentru a completa exchipamentul de exterior.");
-        //    Debug.LogWarning("task complet masca");
-        //}
+        // daca tocmai s-a completat misiunea, afisam imaginea 3 sec
+        if (completMision == 1)
+        {
+            MissionUIManager.instance.ShowMission(missionCompletedImage, 3f);
+        }
     }
 
     // Dezechipare masca (drop)

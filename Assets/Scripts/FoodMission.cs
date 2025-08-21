@@ -1,5 +1,7 @@
 using NUnit.Framework.Interfaces;
+using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FoodMission : MonoBehaviour
 {
@@ -7,11 +9,13 @@ public class FoodMission : MonoBehaviour
     public task_manager taskManager;
     public int contor = 0;
     private bool collected = false;
+    public Sprite missionCompletedImage; // imagine pentru misiune mancare
 
     void Awake()
     {
         instance = this;
     }
+
 
     // Apelata cand jucatorul ia obiectul
     public void OnFoodCollected(DropAndPickUpItem obj)
@@ -27,6 +31,10 @@ public class FoodMission : MonoBehaviour
                 case "Mar3":
                     collected = true;
                     contor++;
+                    if (contor == 1)
+                    {
+                        MissionUIManager.instance.ShowMission(missionCompletedImage, 3f);
+                    }
                     break;
             }
         }
