@@ -1,7 +1,6 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
-
 public class GasMaskUi : MonoBehaviour
 {
     public static GasMaskUi instance;
@@ -16,11 +15,21 @@ public class GasMaskUi : MonoBehaviour
     public bool isGasMaskEquipped = false; // adaugat
     public int completMision = 0;
 
+
     void Awake()
     {
         instance = this;
         slotImage.enabled = false; // ascuns la inceput
 
+    }
+
+    private void Update()
+    {
+        // drop la masca pe tasta 1 fara buton pe ecran
+        if (isGasMaskEquipped && Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            UnequipGasMask();
+        }
     }
 
     // Echipare masca
@@ -68,11 +77,6 @@ public class GasMaskUi : MonoBehaviour
         slotImage.enabled = false;
     }
 
-    // apelat la click pe UI
-    public void OnSlotClick()
-    {
-        UnequipGasMask();
-    }
 }
 
 
