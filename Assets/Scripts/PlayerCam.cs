@@ -12,8 +12,8 @@ public class PlayerCam : MonoBehaviour
     public Transform cameraTransform;
     public Transform camHolder;
 
-    private float xRotation;
-    private float yRotation;
+    public float xRotation;
+    public float yRotation;
 
     // ground movement
     private Rigidbody rb;
@@ -85,7 +85,7 @@ public class PlayerCam : MonoBehaviour
 
     // actions
     private InputAction sprintAction;
-    private InputAction lookAction;
+    public InputAction lookAction;
     private InputAction moveAction;
     private InputAction jumpAction;
     private InputAction crouchAction;

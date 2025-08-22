@@ -35142,6 +35142,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 852fc931b2b3217458d63690e70537dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  panel: {fileID: 252676913}
+  InventoryMenu: {fileID: 5159094419141445920}
+  StartMenu: {fileID: 1222845421}
+  StartMenuInfo: {fileID: 2057023468}
 --- !u!4 &1231264793
 Transform:
   m_ObjectHideFlags: 0
@@ -55023,10 +55027,6 @@ MonoBehaviour:
   neededTanks: 0
   textPrefabTMP: {fileID: 1980541151}
   taskListContainer: {fileID: 2029212350}
-  O2_SuccessPopup: {fileID: 0}
-  popupTaskDescription: 
-  popupCrossout: {fileID: 0}
-  delay: 5
 --- !u!114 &2029212354
 MonoBehaviour:
   m_ObjectHideFlags: 0
